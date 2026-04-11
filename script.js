@@ -691,10 +691,10 @@ function generateReport() {
         
         <div class="footer">
             <div class="footer-info">
-                <div>MULTIPERITAJES Y CONSULTORIA BARCELO S.A.S.</div>
-                <div>Teléfono: 315 2207097</div>
-                <div>Email: multiautosperitajes@gmail.com</div>
-                <div>WEB: www.peritajeexpert.com.co</div>
+                <div>PERITOEXPERT.COM.CO</div>
+                <div>Teléfono: 3007152606</div>
+                <div>Email: peritoexpert.bogota@gmail.com</div>
+                <div>WEB: www.peritoexpert.com.co</div>
             </div>
             <div>Este informe es confidencial y propiedad de PERITOEXPERT. Su distribución está sujeta a autorización. Este documento tiene vigencia hasta cumplir 15 días después</div>
             <div> de la inspección visual realizada. La evaluación se basa en una inspección visual y pruebas funcionales al momento de la revisión. PERITOEXPERT no se hace responsable</div>
