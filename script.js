@@ -124,6 +124,21 @@ const sectionQuestions = {
     ]
 };
 
+// Función para obtener la fecha y hora actual formateada
+function getCurrentDateTime() {
+    const now = new Date();
+    const options = {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    };
+    return now.toLocaleString('es-CO', options);
+}
+
 // Función para navegar entre secciones
 function nextSection(sectionNumber) {
     document.getElementById(`section-${currentSection}`).classList.remove('active');
@@ -133,6 +148,16 @@ function nextSection(sectionNumber) {
     // Actualizar barra de progreso
     const progress = (sectionNumber / totalSections) * 100;
     document.getElementById('progressBar').style.width = `${progress}%`;
+}
+
+// Función para volver al formulario desde el informe
+function backToForm() {
+    if (confirm('¿Está seguro de que desea volver al formulario? Perderá el informe actual y podrá corregir los datos.')) {
+        document.getElementById('finalReport').style.display = 'none';
+        document.getElementById('evaluationForm').style.display = 'block';
+        document.getElementById('finalReport').innerHTML = '';
+        window.scrollTo(0, 0);
+    }
 }
 
 // Función para validar la sección actual
@@ -224,6 +249,64 @@ function formatCurrency(value) {
     }).format(value);
 }
 
+// Función para habilitar edición del puntaje global
+function enableScoreEdit(element) {
+    const currentScore = parseInt(element.textContent);
+    element.setAttribute('contenteditable', 'true');
+    element.classList.add('editing');
+    element.focus();
+    
+    // Seleccionar todo el texto
+    const range = document.createRange();
+    const selection = window.getSelection();
+    range.selectNodeContents(element);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    
+    // Evento para guardar cambios al perder el foco
+    element.addEventListener('blur', function() {
+        let newScore = parseInt(this.textContent);
+        if (isNaN(newScore)) {
+            newScore = currentScore;
+        }
+        newScore = Math.min(100, Math.max(0, newScore));
+        this.textContent = newScore;
+        this.removeAttribute('contenteditable');
+        this.classList.remove('editing');
+        
+        // Actualizar la barra de gauge
+        const gaugeValue = this.closest('.score-card').querySelector('.gauge-value');
+        if (gaugeValue) {
+            gaugeValue.style.left = `${newScore}%`;
+            gaugeValue.setAttribute('data-value', newScore);
+        }
+        
+        // Actualizar el sello de aprobado/no aprobado
+        const stamp = document.querySelector('.approved-stamp, .not-approved-stamp');
+        if (stamp) {
+            const newStamp = newScore >= 75 ? 'APROBADO' : 'NO APROBADO';
+            stamp.textContent = newStamp;
+            stamp.className = newScore >= 75 ? 'approved-stamp' : 'not-approved-stamp';
+        }
+        
+        // Actualizar el texto de criterio
+        const criteriaText = this.closest('.score-card').querySelector('.score-label:last-child');
+        if (criteriaText) {
+            criteriaText.innerHTML = newScore >= 75 ? 
+                'Vehículo APROBADO según criterios de evaluación' : 
+                'Vehículo NO APROBADO según criterios de evaluación';
+        }
+    });
+    
+    // Prevenir Enter de crear nueva línea
+    element.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            this.blur();
+        }
+    });
+}
+
 // Función para generar el informe final
 function generateReport() {
     // Ocultar formulario y mostrar informe
@@ -254,6 +337,8 @@ function generateReport() {
     // Calcular puntajes
     const sectionScores = calculateScores();
     const globalScore = calculateGlobalScore(sectionScores);
+    const peritajeDateTime = getCurrentDateTime();
+    const reportNumber = Math.floor(Math.random() * 10000);
     
     // Generar HTML del informe
     const reportHTML = `
@@ -269,8 +354,12 @@ function generateReport() {
                 <div>
                     <h1 class="report-title">Informe de Inspección Técnica</h1>
                 </div>
-                <div class="report-number">Peritaje #${Math.floor(Math.random() * 1000)}</div>
+                <div class="report-number">Peritaje #${reportNumber}</div>
             </div>
+        </div>
+        
+        <div class="peritaje-datetime">
+            <i class="fas fa-calendar-alt"></i> Fecha y hora del peritaje: ${peritajeDateTime}
         </div>
         
         <div class="vehicle-display">
@@ -569,7 +658,7 @@ function generateReport() {
         
         <div class="score-card">
             <div class="score-label">Puntuación Global</div>
-            <div class="score-value">${globalScore}%</div>
+            <div class="score-value" onclick="enableScoreEdit(this)">${globalScore}%</div>
             <div class="gauge">
                 <div class="gauge-value" style="left: ${globalScore}%;" data-value="${globalScore}"></div>
             </div>
@@ -772,10 +861,13 @@ function generateReport() {
         </div>
         
         <div class="action-buttons" style="display: flex; justify-content: center; gap: 15px; margin: 30px 0;">
+            <button onclick="backToForm()" class="btn-action btn-back">
+                <i class="fas fa-arrow-left"></i> Volver al Formulario
+            </button>
             <button onclick="printReport()" class="btn-action">
                 <i class="fas fa-print"></i> Imprimir
             </button>
-            <button onclick="saveAsPDF()" class="btn-action btn-pdf">
+            <button onclick="saveAsPDF(event)" class="btn-action btn-pdf">
                 <i class="fas fa-file-pdf"></i> Guardar como PDF
             </button>
             <button onclick="newEvaluation()" class="btn-action btn-secondary">
@@ -872,17 +964,27 @@ function animateCommercialValues() {
     
     // Animar las barras
     setTimeout(() => {
-        document.getElementById('marketBar').style.width = `${marketPercent}%`;
-        document.getElementById('marketBar').textContent = `${Math.round(marketPercent)}%`;
+        const marketBar = document.getElementById('marketBar');
+        const fasecoldaBar = document.getElementById('fasecoldaBar');
+        const expertBar = document.getElementById('expertBar');
+        const accessoriesBar = document.getElementById('accessoriesBar');
         
-        document.getElementById('fasecoldaBar').style.width = `${fasecoldaPercent}%`;
-        document.getElementById('fasecoldaBar').textContent = `${Math.round(fasecoldaPercent)}%`;
-        
-        document.getElementById('expertBar').style.width = `${expertPercent}%`;
-        document.getElementById('expertBar').textContent = `${Math.round(expertPercent)}%`;
-        
-        document.getElementById('accessoriesBar').style.width = `${accessoriesPercent}%`;
-        document.getElementById('accessoriesBar').textContent = `${Math.round(accessoriesPercent)}%`;
+        if (marketBar) {
+            marketBar.style.width = `${marketPercent}%`;
+            marketBar.textContent = `${Math.round(marketPercent)}%`;
+        }
+        if (fasecoldaBar) {
+            fasecoldaBar.style.width = `${fasecoldaPercent}%`;
+            fasecoldaBar.textContent = `${Math.round(fasecoldaPercent)}%`;
+        }
+        if (expertBar) {
+            expertBar.style.width = `${expertPercent}%`;
+            expertBar.textContent = `${Math.round(expertPercent)}%`;
+        }
+        if (accessoriesBar) {
+            accessoriesBar.style.width = `${accessoriesPercent}%`;
+            accessoriesBar.textContent = `${Math.round(accessoriesPercent)}%`;
+        }
     }, 500);
 }
 
@@ -932,13 +1034,13 @@ function loadReportImages() {
         const input = document.getElementById(`photo${id}`);
         const reportImg = document.getElementById(`reportPhoto${id}`);
         
-        if (input.files && input.files[0]) {
+        if (input && input.files && input.files[0] && reportImg) {
             const reader = new FileReader();
             reader.onload = function(e) {
                 reportImg.src = e.target.result;
             };
             reader.readAsDataURL(input.files[0]);
-        } else {
+        } else if (reportImg && reportImg.parentElement) {
             reportImg.parentElement.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%;">Sin imagen</div>';
         }
     });
@@ -1032,7 +1134,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const previewId = 'preview' + this.id.replace('photo', '');
             const preview = document.getElementById(previewId);
             
-            if (this.files && this.files[0]) {
+            if (this.files && this.files[0] && preview) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     preview.src = e.target.result;
@@ -1045,7 +1147,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Funciones de utilidad
-function saveAsPDF() {
+function saveAsPDF(event) {
     const element = document.getElementById('finalReport');
     const plate = document.getElementById('vehiclePlate').value || 'reporte';
     const date = new Date().toISOString().split('T')[0];
@@ -1107,36 +1209,38 @@ function printReport() {
 
 // Función para nueva evaluación
 function newEvaluation() {
-    // Resetear formulario
-    document.getElementById('evaluationForm').reset();
-    document.getElementById('evaluationForm').style.display = 'block';
-    document.getElementById('finalReport').style.display = 'none';
-    document.getElementById('finalReport').innerHTML = '';
-    
-    // Resetear sección actual
-    currentSection = 1;
-    document.querySelectorAll('.form-section').forEach(section => {
-        section.classList.remove('active');
-    });
-    document.getElementById('section-1').classList.add('active');
-    document.getElementById('progressBar').style.width = '7.7%';
-    
-    // Resetear preview de imágenes
-    document.querySelectorAll('.photo-preview').forEach(preview => {
-        preview.style.display = 'none';
-        preview.src = '';
-    });
-    
-    // Scroll al inicio
-    window.scrollTo(0, 0);
-    
-    // Resetear bordes de validación
-    document.querySelectorAll('select, input').forEach(element => {
-        element.style.borderColor = '#ddd';
-    });
-    
-    // Ocultar errores de validación
-    document.querySelectorAll('.validation-error').forEach(error => {
-        error.style.display = 'none';
-    });
+    if (confirm('¿Está seguro de que desea iniciar una nueva evaluación? Se perderán los datos actuales.')) {
+        // Resetear formulario
+        document.getElementById('evaluationForm').reset();
+        document.getElementById('evaluationForm').style.display = 'block';
+        document.getElementById('finalReport').style.display = 'none';
+        document.getElementById('finalReport').innerHTML = '';
+        
+        // Resetear sección actual
+        currentSection = 1;
+        document.querySelectorAll('.form-section').forEach(section => {
+            section.classList.remove('active');
+        });
+        document.getElementById('section-1').classList.add('active');
+        document.getElementById('progressBar').style.width = '7.7%';
+        
+        // Resetear preview de imágenes
+        document.querySelectorAll('.photo-preview').forEach(preview => {
+            preview.style.display = 'none';
+            preview.src = '';
+        });
+        
+        // Scroll al inicio
+        window.scrollTo(0, 0);
+        
+        // Resetear bordes de validación
+        document.querySelectorAll('select, input').forEach(element => {
+            element.style.borderColor = '#ddd';
+        });
+        
+        // Ocultar errores de validación
+        document.querySelectorAll('.validation-error').forEach(error => {
+            error.style.display = 'none';
+        });
+    }
 }
