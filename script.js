@@ -718,12 +718,12 @@ function generateReport() {
                 
                 <div style="margin-bottom: 6px;">
                     <p style="margin: 2px 0; font-weight: bold;">Autorización para consulta de información</p>
-                    <p style="margin: 2px 0; text-align: justify;">Autorizo expresa e irrevocablemente a PERITOEXPERT S.A.S. para consultar mi información personal y la del vehículo en el Registro Único Nacional de Tránsito (RUNT), así como en otras entidades públicas o privadas afiliadas o relacionadas, con el fin de solicitar, consultar y validar la información del vehículo identificado con la placa consignada en el informe de inspección.</p>
+                    <p style="margin: 2px 0; text-align: justify;">Autorizo expresa e irrevocablemente a PERITOEXPERT para consultar mi información personal y la del vehículo en el Registro Único Nacional de Tránsito (RUNT), así como en otras entidades públicas o privadas afiliadas o relacionadas, con el fin de solicitar, consultar y validar la información del vehículo identificado con la placa consignada en el informe de inspección.</p>
                 </div>
                 
                 <div style="margin-bottom: 6px;">
                     <p style="margin: 2px 0; font-weight: bold;">Prestación del servicio</p>
-                    <p style="margin: 2px 0; text-align: justify;">PERITOEXPERT S.A.S. presta al cliente el servicio de peritaje automotriz, el cual puede incluir inspección técnica, validación de asegurabilidad y avalúo comercial referencial, de acuerdo con el alcance contratado y las condiciones establecidas en el presente informe.</p>
+                    <p style="margin: 2px 0; text-align: justify;">PERITOEXPERT. presta al cliente el servicio de peritaje automotriz, el cual puede incluir inspección técnica, validación de asegurabilidad y avalúo comercial referencial, de acuerdo con el alcance contratado y las condiciones establecidas en el presente informe.</p>
                 </div>
                 
                 <div style="margin-bottom: 6px;">
@@ -738,7 +738,7 @@ function generateReport() {
                 
                 <div style="margin-bottom: 6px;">
                     <p style="margin: 2px 0; font-weight: bold;">Notificaciones y reportes</p>
-                    <p style="margin: 2px 0; text-align: justify;">PERITOEXPERT S.A.S. bajo ninguna circunstancia realizará notificaciones, reportes, alertas o registros ante autoridades, aseguradoras o terceros respecto al vehículo durante la ejecución del peritaje, salvo que exista una obligación legal expresa que así lo exija.</p>
+                    <p style="margin: 2px 0; text-align: justify;">PERITOEXPERT bajo ninguna circunstancia realizará notificaciones, reportes, alertas o registros ante autoridades, aseguradoras o terceros respecto al vehículo durante la ejecución del peritaje, salvo que exista una obligación legal expresa que así lo exija.</p>
                 </div>
                 
                 <div style="margin-bottom: 6px;">
@@ -748,7 +748,7 @@ function generateReport() {
                 
                 <div style="margin-bottom: 6px;">
                     <p style="margin: 2px 0; font-weight: bold;">No realización de reparaciones</p>
-                    <p style="margin: 2px 0; text-align: justify;">PERITOEXPERT S.A.S. no realiza ningún tipo de reparación, ajuste, mantenimiento ni modificación al vehículo inspeccionado. Todas las pruebas y verificaciones realizadas son únicamente de carácter diagnóstico y observacional.</p>
+                    <p style="margin: 2px 0; text-align: justify;">PERITOEXPERT no realiza ningún tipo de reparación, ajuste, mantenimiento ni modificación al vehículo inspeccionado. Todas las pruebas y verificaciones realizadas son únicamente de carácter diagnóstico y observacional.</p>
                 </div>
                 
                 <div style="margin-bottom: 6px;">
@@ -758,7 +758,7 @@ function generateReport() {
                 
                 <div style="margin-bottom: 6px;">
                     <p style="margin: 2px 0; font-weight: bold;">Interpretación del informe</p>
-                    <p style="margin: 2px 0; text-align: justify;">Los arreglos, reparaciones o decisiones que se deriven del informe de inspección no comprometen a PERITOEXPERT S.A.S., teniendo en cuenta que el informe puede estar sujeto a diversas interpretaciones técnicas por parte de terceros.</p>
+                    <p style="margin: 2px 0; text-align: justify;">Los arreglos, reparaciones o decisiones que se deriven del informe de inspección no comprometen a PERITOEXPERT, teniendo en cuenta que el informe puede estar sujeto a diversas interpretaciones técnicas por parte de terceros.</p>
                 </div>
                 
                 <div style="margin-bottom: 6px;">
@@ -862,7 +862,7 @@ function generateReport() {
         
         <div class="action-buttons" style="display: flex; justify-content: center; gap: 15px; margin: 30px 0;">
             <button onclick="backToForm()" class="btn-action btn-back">
-                <i class="fas fa-arrow-left"></i> Volver al Formulario
+                <i class="fas fa-arrow-left"></i> Corregir Formulario
             </button>
             <button onclick="printReport()" class="btn-action">
                 <i class="fas fa-print"></i> Imprimir
