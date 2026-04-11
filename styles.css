@@ -184,6 +184,16 @@ select:invalid, input:invalid {
     font-size: 14px;
 }
 
+/* Fecha y hora del peritaje */
+.peritaje-datetime {
+    text-align: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 14px;
+    color: #6c757d;
+}
+
 .vehicle-display {
     display: flex;
     padding: 30px;
@@ -346,6 +356,22 @@ select:invalid, input:invalid {
     font-weight: bold;
     margin: 10px 0;
     color: var(--f1-accent);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 8px;
+}
+
+.score-value:hover {
+    background-color: rgba(0, 210, 190, 0.2);
+}
+
+.score-value.editing {
+    background-color: #fff;
+    color: var(--f1-black);
+    border: 2px solid var(--f1-accent);
+    outline: none;
 }
 
 .score-label {
@@ -644,6 +670,14 @@ select:invalid, input:invalid {
     background-color: #5a6268;
 }
 
+.btn-back {
+    background-color: #17a2b8;
+}
+
+.btn-back:hover {
+    background-color: #138496;
+}
+
 @media print {
     .action-buttons {
         display: none !important;
@@ -714,7 +748,7 @@ select:invalid, input:invalid {
     display: none;
 }
 
-/* Agregar en la sección de estilos CSS */
+/* Estilos legales */
 .legal-clauses {
     font-family: 'Arial', sans-serif;
     font-size: 7.5px !important;
@@ -745,7 +779,6 @@ select:invalid, input:invalid {
     color: #333;
 }
 
-/* Estilo específico para la sección de declaraciones */
 .legal-clauses > div:first-child {
     background-color: #e8f4f8 !important;
     border-left: 3px solid var(--f1-red) !important;
@@ -769,7 +802,6 @@ select:invalid, input:invalid {
         background-color: #f0f8ff !important;
         border-left: 2px solid var(--f1-red) !important;
     }
-    
 }
 
 @media print {
