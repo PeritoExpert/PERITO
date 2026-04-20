@@ -347,8 +347,8 @@ function generateReport() {
                 <div class="logo-container">
                     <div class="logo-img">LOGO</div>
                     <div class="logo-text">
-                        PERITAJE EXPERT
-                        <span>SISTEMA DE EVALUACIÓN</span>
+                        PeritoExpert
+                        <span>INFORME DE EVALUACIÓN</span>
                     </div>
                 </div>
                 <div>
