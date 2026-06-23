@@ -58,7 +58,7 @@ const sectionQuestions = {
         { id: "rightRearDoor", text: "Puerta trasera izquierda" },
         { id: "rightFrontDoor", text: "Puerta delantera derecha" },
         { id: "leftFrontDoor", text: "Puerta delantera izquierda" },
-        { id: "rightRunningBoard", text: "Estribo derecho delantero" },
+        { id: "rightRunningBoard", text: "Puerta baúl" },
         { id: "hood", text: "Capo" },
         { id: "leftRunningBoard", text: "Estribo izquierdo delantero" },
         { id: "rightRearRunningBoard", text: "Estribo derecho trasero" },
