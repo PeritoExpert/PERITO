@@ -345,7 +345,9 @@ function generateReport() {
         <div class="header">
             <div class="header-content">
                 <div class="logo-container">
-                    <div class="logo-img">LOGO</div>
+                    <div class="logo-img">
+                        <img src="Logoperito.png" alt="PeritoExpert Logo" onerror="this.parentElement.innerHTML='LOGO'">
+                    </div>
                     <div class="logo-text">
                         PeritoExpert
                         <span>INFORME DE EVALUACIÓN</span>
@@ -476,6 +478,12 @@ function generateReport() {
             <!-- Sección Documentación -->
             <div class="subsection">
                 <h3>Documentación</h3>
+                <div class="legend">
+                    <span class="legend-item"><span class="color-dot good"></span> Bueno/Sí</span>
+                    <span class="legend-item"><span class="color-dot regular"></span> Regular</span>
+                    <span class="legend-item"><span class="color-dot bad"></span> Malo/No</span>
+                    <span class="legend-item"><span class="color-dot na"></span> N/A</span>
+                </div>
                 <div class="checklist">
                     ${generateChecklistItems(2)}
                 </div>
@@ -491,6 +499,11 @@ function generateReport() {
             <!-- Sección Fuga de fluidos (CRÍTICA) -->
             <div class="subsection">
                 <h3>Fuga de fluidos <span style="color: var(--bad); font-size: 14px;">(Sección Crítica)</span></h3>
+                <div class="legend">
+                    <span class="legend-item"><span class="color-dot good"></span> No hay fuga</span>
+                    <span class="legend-item"><span class="color-dot bad"></span> Presenta fuga</span>
+                    <span class="legend-item"><span class="color-dot na"></span> N/A</span>
+                </div>
                 <div class="checklist">
                     ${generateChecklistItems(4)}
                 </div>
@@ -509,6 +522,12 @@ function generateReport() {
             <!-- Sección Sistema Eléctrico -->
             <div class="subsection">
                 <h3>Sistema Eléctrico</h3>
+                <div class="legend">
+                    <span class="legend-item"><span class="color-dot good"></span> Bueno</span>
+                    <span class="legend-item"><span class="color-dot regular"></span> Regular</span>
+                    <span class="legend-item"><span class="color-dot bad"></span> Malo</span>
+                    <span class="legend-item"><span class="color-dot na"></span> N/A</span>
+                </div>
                 <div class="checklist-full">
                     ${generateChecklistItems(5)}
                 </div>
@@ -524,6 +543,12 @@ function generateReport() {
             <!-- Sección Inspección Visual -->
             <div class="subsection">
                 <h3>Inspección Visual y Técnica</h3>
+                <div class="legend">
+                    <span class="legend-item"><span class="color-dot good"></span> Bueno</span>
+                    <span class="legend-item"><span class="color-dot regular"></span> Regular</span>
+                    <span class="legend-item"><span class="color-dot bad"></span> Malo</span>
+                    <span class="legend-item"><span class="color-dot na"></span> N/A</span>
+                </div>
                 <div class="checklist-full">
                     ${generateChecklistItems(6)}
                 </div>
@@ -539,6 +564,12 @@ function generateReport() {
             <!-- Sección Estado del Motor (CRÍTICA) -->
             <div class="subsection">
                 <h3>Estado del Motor <span style="color: var(--bad); font-size: 14px;">(Sección Crítica)</span></h3>
+                <div class="legend">
+                    <span class="legend-item"><span class="color-dot good"></span> Bueno</span>
+                    <span class="legend-item"><span class="color-dot regular"></span> Regular</span>
+                    <span class="legend-item"><span class="color-dot bad"></span> Malo</span>
+                    <span class="legend-item"><span class="color-dot na"></span> N/A</span>
+                </div>
                 <div class="checklist">
                     ${generateChecklistItems(7)}
                 </div>
@@ -557,6 +588,12 @@ function generateReport() {
             <!-- Sección Llantas -->
             <div class="subsection">
                 <h3>Llantas</h3>
+                <div class="legend">
+                    <span class="legend-item"><span class="color-dot good"></span> Bueno</span>
+                    <span class="legend-item"><span class="color-dot regular"></span> Regular</span>
+                    <span class="legend-item"><span class="color-dot bad"></span> Malo</span>
+                    <span class="legend-item"><span class="color-dot na"></span> N/A</span>
+                </div>
                 <div class="checklist">
                     ${generateChecklistItems(8)}
                 </div>
@@ -572,6 +609,12 @@ function generateReport() {
             <!-- Sección Tren Delantero -->
             <div class="subsection">
                 <h3>Tren Delantero y Suspensión</h3>
+                <div class="legend">
+                    <span class="legend-item"><span class="color-dot good"></span> Bueno</span>
+                    <span class="legend-item"><span class="color-dot regular"></span> Regular</span>
+                    <span class="legend-item"><span class="color-dot bad"></span> Malo</span>
+                    <span class="legend-item"><span class="color-dot na"></span> N/A</span>
+                </div>
                 <div class="checklist-full">
                     ${generateChecklistItems(9)}
                 </div>
@@ -587,6 +630,12 @@ function generateReport() {
             <!-- Sección Interior -->
             <div class="subsection">
                 <h3>Interior del Vehículo</h3>
+                <div class="legend">
+                    <span class="legend-item"><span class="color-dot good"></span> Bueno</span>
+                    <span class="legend-item"><span class="color-dot regular"></span> Regular</span>
+                    <span class="legend-item"><span class="color-dot bad"></span> Malo</span>
+                    <span class="legend-item"><span class="color-dot na"></span> N/A</span>
+                </div>
                 <div class="checklist-full">
                     ${generateChecklistItems(10)}
                 </div>
@@ -602,6 +651,11 @@ function generateReport() {
             <!-- Sección Accesorios -->
             <div class="subsection">
                 <h3>Accesorios</h3>
+                <div class="legend">
+                    <span class="legend-item"><span class="color-dot good"></span> Sí</span>
+                    <span class="legend-item"><span class="color-dot bad"></span> No</span>
+                    <span class="legend-item"><span class="color-dot na"></span> N/A</span>
+                </div>
                 <div class="checklist">
                     ${generateChecklistItems(11)}
                 </div>
@@ -617,6 +671,12 @@ function generateReport() {
             <!-- Sección Prueba de Ruta -->
             <div class="subsection">
                 <h3>Prueba de Ruta</h3>
+                <div class="legend">
+                    <span class="legend-item"><span class="color-dot good"></span> Bueno</span>
+                    <span class="legend-item"><span class="color-dot regular"></span> Regular</span>
+                    <span class="legend-item"><span class="color-dot bad"></span> Malo</span>
+                    <span class="legend-item"><span class="color-dot na"></span> N/A</span>
+                </div>
                 <div class="checklist">
                     ${generateChecklistItems(12)}
                 </div>
@@ -656,17 +716,26 @@ function generateReport() {
             </div>
         </div>
         
-        <div class="score-card">
-            <div class="score-label">Puntuación Global</div>
-            <div class="score-value" onclick="enableScoreEdit(this)">${globalScore}%</div>
-            <div class="gauge">
-                <div class="gauge-value" style="left: ${globalScore}%;" data-value="${globalScore}"></div>
+        <!-- RESULTADO GLOBAL - Diseño especial -->
+        <div class="global-result ${globalScore >= 75 ? 'approved' : 'rejected'}">
+            <div class="global-stamp">${globalScore >= 75 ? '✓ APROBADO' : '✗ NO APROBADO'}</div>
+            <div class="global-title">Resultado Final de la Evaluación</div>
+            <div class="global-score-container">
+                <div class="global-score-circle">
+                    <div class="circle-bg"></div>
+                    <div class="circle-fill" style="clip-path: inset(0 ${100 - globalScore}% 0 0);"></div>
+                    <div class="global-score-number">
+                        ${globalScore}<span class="percent-sign">%</span>
+                    </div>
+                    <div class="global-score-label">Puntaje Global</div>
+                </div>
             </div>
-            <div class="score-label">
-                ${globalScore >= 75 ? 
-                    'Vehículo APROBADO según criterios de evaluación' : 
-                    'Vehículo NO APROBADO según criterios de evaluación'}
+            <div class="global-text">
+                El vehículo ha sido <span class="highlight">${globalScore >= 75 ? 'APROBADO' : 'NO APROBADO'}</span> según los criterios de evaluación
+                ${globalScore === 0 ? ' - CHASIS REPROBADO' : ''}
             </div>
+            <div class="global-subtext">Puntuación mínima requerida: 75%</div>
+            <div class="global-edit-hint" onclick="enableGlobalScoreEdit(this)">✎ Haz clic para editar el puntaje</div>
         </div>
         
         <div class="signature-area">
@@ -1088,12 +1157,20 @@ function calculateScores() {
 }
 
 // Función para calcular puntuación global con penalización por secciones críticas
+// Función para calcular puntuación global con penalización por secciones críticas
 function calculateGlobalScore(sectionScores) {
     let totalWeightedScore = 0;
     let totalWeight = 0;
     
     // Penalización adicional si las secciones críticas están mal
     let criticalPenalty = 0;
+    
+    // Verificar si el chasís está MALO (sección 9, pregunta "chassis")
+    const chassisElement = document.getElementById('chassis');
+    let chassisIsBad = false;
+    if (chassisElement && chassisElement.value === 'Malo') {
+        chassisIsBad = true;
+    }
     
     for (const section in sectionScores) {
         if (sectionWeights[section]) {
@@ -1117,14 +1194,95 @@ function calculateGlobalScore(sectionScores) {
         }
     }
     
-    const baseScore = totalWeight > 0 ? Math.round(totalWeightedScore / totalWeight) : 0;
+    let baseScore = totalWeight > 0 ? Math.round(totalWeightedScore / totalWeight) : 0;
+    
+    // Si el chasís está MALO, el puntaje global es 65% (peritaje reprobado)
+    if (chassisIsBad) {
+        return 65; // Retorna 65% directamente
+    }
     
     // Aplicar penalización adicional
     const finalScore = Math.max(0, baseScore - criticalPenalty);
     
     console.log(`Puntuación base: ${baseScore}%, Penalización crítica: ${criticalPenalty}%, Puntuación final: ${finalScore}%`);
+    console.log(`Chasís malo: ${chassisIsBad}`);
     
     return finalScore;
+}
+
+// Función para editar el puntaje global directamente
+function enableGlobalScoreEdit(element) {
+    const globalResult = element.closest('.global-result');
+    const scoreNumber = globalResult.querySelector('.global-score-number');
+    const currentText = scoreNumber.textContent;
+    const currentScore = parseInt(currentText);
+    
+    // Crear input para editar
+    const input = document.createElement('input');
+    input.type = 'number';
+    input.min = 0;
+    input.max = 100;
+    input.value = currentScore;
+    input.style.cssText = `
+        font-size: 52px;
+        font-weight: 900;
+        color: white;
+        background: transparent;
+        border: 2px solid rgba(255,255,255,0.3);
+        border-radius: 8px;
+        padding: 5px 15px;
+        width: 140px;
+        text-align: center;
+        z-index: 2;
+        position: relative;
+    `;
+    
+    // Reemplazar el número con el input
+    const textNode = scoreNumber.childNodes[0];
+    const percentSpan = scoreNumber.querySelector('.percent-sign');
+    scoreNumber.innerHTML = '';
+    scoreNumber.appendChild(input);
+    scoreNumber.appendChild(percentSpan);
+    
+    input.focus();
+    input.select();
+    
+    // Guardar cambios al perder foco o presionar Enter
+    function saveGlobalScore() {
+        let newScore = parseInt(input.value);
+        if (isNaN(newScore) || newScore < 0) newScore = 0;
+        if (newScore > 100) newScore = 100;
+        
+        // Actualizar número
+        scoreNumber.innerHTML = `${newScore}<span class="percent-sign">%</span>`;
+        
+        // Actualizar estado de aprobación
+        const isApproved = newScore >= 75;
+        globalResult.className = `global-result ${isApproved ? 'approved' : 'rejected'}`;
+        globalResult.querySelector('.global-stamp').textContent = isApproved ? '✓ APROBADO' : '✗ NO APROBADO';
+        globalResult.querySelector('.global-text .highlight').textContent = isApproved ? 'APROBADO' : 'NO APROBADO';
+        
+        // Actualizar sello
+        const stamp = document.querySelector('.approved-stamp, .not-approved-stamp');
+        if (stamp) {
+            stamp.textContent = isApproved ? 'APROBADO' : 'NO APROBADO';
+            stamp.className = isApproved ? 'approved-stamp' : 'not-approved-stamp';
+        }
+        
+        // Actualizar el círculo
+        const circleFill = globalResult.querySelector('.circle-fill');
+        if (circleFill) {
+            circleFill.style.clipPath = `inset(0 ${100 - newScore}% 0 0)`;
+        }
+    }
+    
+    input.addEventListener('blur', saveGlobalScore);
+    input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            this.blur();
+        }
+    });
 }
 
 // Configurar previsualización de imágenes
