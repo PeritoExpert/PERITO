@@ -149,8 +149,12 @@ select:invalid, input:invalid {
 .logo-img {
     height: 60px;
     margin-right: 15px;
-    background-color: white;
-    padding: 5px;
+    border-radius: 5px;
+}
+
+.logo-img img {
+    height: 100%;
+    width: auto;
     border-radius: 5px;
 }
 
@@ -324,6 +328,7 @@ select:invalid, input:invalid {
     justify-content: center;
     font-size: 12px;
     color: white;
+    flex-shrink: 0;
 }
 
 .status-good {
@@ -342,6 +347,50 @@ select:invalid, input:invalid {
     background-color: var(--regular);
 }
 
+/* Leyenda de colores */
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 10px 0 15px 0;
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #555;
+}
+
+.legend-item .color-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.legend-item .color-dot.good {
+    background-color: var(--good);
+}
+
+.legend-item .color-dot.regular {
+    background-color: var(--regular);
+}
+
+.legend-item .color-dot.bad {
+    background-color: var(--bad);
+}
+
+.legend-item .color-dot.na {
+    background-color: var(--na);
+}
+
+/* Score card mejorado */
 .score-card {
     background-color: var(--f1-black);
     color: white;
@@ -412,6 +461,216 @@ select:invalid, input:invalid {
     border-radius: 4px;
     font-size: 12px;
     font-weight: bold;
+}
+
+/* RESULTADO GLOBAL - Diseño especial */
+.global-result {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-radius: 16px;
+    padding: 30px 30px 35px;
+    margin: 30px 0 20px;
+    text-align: center;
+    border: 4px solid;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.global-result.approved {
+    border-color: var(--good);
+    box-shadow: 0 8px 32px rgba(76, 175, 80, 0.3);
+}
+
+.global-result.rejected {
+    border-color: var(--bad);
+    box-shadow: 0 8px 32px rgba(244, 67, 54, 0.3);
+}
+
+.global-result .global-stamp {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: 900;
+    padding: 8px 20px;
+    border-radius: 10px;
+    transform: rotate(8deg);
+    letter-spacing: 2px;
+    opacity: 0.9;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.global-result.approved .global-stamp {
+    color: var(--good);
+    border: 4px solid var(--good);
+    background: rgba(76, 175, 80, 0.15);
+}
+
+.global-result.rejected .global-stamp {
+    color: var(--bad);
+    border: 4px solid var(--bad);
+    background: rgba(244, 67, 54, 0.15);
+}
+
+.global-result .global-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.global-result .global-score-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.global-result .global-score-circle {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: rgba(255,255,255,0.05);
+}
+
+.global-result .global-score-circle .circle-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 8px solid rgba(255,255,255,0.1);
+}
+
+.global-result .global-score-circle .circle-fill {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 8px solid;
+    clip-path: inset(0 0 0 50%);
+    transition: all 0.5s;
+}
+
+.global-result .global-score-circle .circle-fill::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 8px solid transparent;
+}
+
+.global-result.approved .circle-fill {
+    border-color: var(--good);
+}
+
+.global-result.rejected .circle-fill {
+    border-color: var(--bad);
+}
+
+.global-result .global-score-number {
+    font-size: 52px;
+    font-weight: 900;
+    color: white;
+    z-index: 2;
+    line-height: 1;
+}
+
+.global-result .global-score-number .percent-sign {
+    font-size: 28px;
+    color: rgba(255,255,255,0.6);
+}
+
+.global-result .global-score-label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+.global-result .global-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.8);
+    margin-top: 15px;
+}
+
+.global-result .global-text .highlight {
+    font-weight: 700;
+}
+
+.global-result.approved .global-text .highlight {
+    color: var(--good);
+}
+
+.global-result.rejected .global-text .highlight {
+    color: var(--bad);
+}
+
+.global-result .global-subtext {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 5px;
+}
+
+.global-result .global-edit-hint {
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+    margin-top: 12px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.global-result .global-edit-hint:hover {
+    color: rgba(255,255,255,0.5);
+}
+
+/* Animación para el resultado global */
+@keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(76, 175, 80, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(76, 175, 80, 0.5); }
+}
+
+.global-result.approved {
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulseRed {
+    0%, 100% { box-shadow: 0 0 20px rgba(244, 67, 54, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(244, 67, 54, 0.5); }
+}
+
+.global-result.rejected {
+    animation: glowPulseRed 2s ease-in-out infinite;
+}
+
+/* Badge de chasis reprobado */
+.chassis-fail-badge {
+    display: inline-block;
+    background-color: var(--bad);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 8px;
+    animation: pulseBad 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseBad {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
 }
 
 .observations {
@@ -859,5 +1118,26 @@ select:invalid, input:invalid {
         flex-direction: column;
         text-align: center;
         gap: 15px;
+    }
+
+    .global-result .global-stamp {
+        position: static;
+        transform: rotate(0deg);
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+
+    .global-result .global-score-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .global-result .global-score-circle {
+        width: 120px;
+        height: 120px;
+    }
+
+    .global-result .global-score-number {
+        font-size: 38px;
     }
 }
