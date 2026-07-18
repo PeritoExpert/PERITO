@@ -731,7 +731,7 @@ function generateReport() {
                 </div>
             </div>
             <div class="global-text">
-                El vehículo ha sido <span class="highlight">${globalScore >= 75 ? 'APROBADO' : 'NO APROBADO'}</span> según los criterios de evaluación
+                Vehículo <span class="highlight">${globalScore >= 75 ? 'APROBADO' : 'NO APROBADO'}</span> según los criterios de evaluación
                 ${globalScore === 0 ? ' - CHASIS REPROBADO' : ''}
             </div>
             <div class="global-subtext">Puntuación mínima requerida: 75%</div>
