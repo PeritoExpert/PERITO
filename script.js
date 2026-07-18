@@ -735,7 +735,7 @@ function generateReport() {
                 ${globalScore === 0 ? ' - CHASIS REPROBADO' : ''}
             </div>
             <div class="global-subtext">Puntuación mínima requerida: 75%</div>
-            <div class="global-edit-hint" onclick="enableGlobalScoreEdit(this)">✎ Haz clic para editar el puntaje</div>
+            <div class="global-edit-hint" onclick="enableGlobalScoreEdit(this)">Resultado</div>
         </div>
         
         <div class="signature-area">
@@ -765,7 +765,7 @@ function generateReport() {
                 <div>Email: peritoexpert.bogota@gmail.com</div>
                 <div>WEB: www.peritoexpert.com.co</div>
             </div>
-            <div>Este informe es confidencial y propiedad de PERITOEXPERT. Su distribución está sujeta a autorización. Este documento tiene vigencia hasta cumplir 15 días después</div>
+            <div>Este informe es confidencial y propiedad de PERITOEXPERT. Su distribución está sujeta a autorización. Este documento tiene vigencia hasta cumplir 7 días después</div>
             <div> de la inspección visual realizada. La evaluación se basa en una inspección visual y pruebas funcionales al momento de la revisión. PERITOEXPERT no se hace responsable</div>
             <div>por fallas mecánicas que se presenten posterior a la inspección.</div>
         </div>
@@ -802,7 +802,7 @@ function generateReport() {
                 
                 <div style="margin-bottom: 6px;">
                     <p style="margin: 2px 0; font-weight: bold;">Avalúo comercial</p>
-                    <p style="margin: 2px 0; text-align: justify;">PERITOEXPERT S.A.S. se compromete a realizar el avalúo comercial del vehículo conforme a metodologías, referencias del mercado y procedimientos internos establecidos. El resultado del avalúo no compromete a la empresa con la comercialización del automotor, ni constituye una obligación de compra, venta o intermediación.</p>
+                    <p style="margin: 2px 0; text-align: justify;">PERITOEXPERT. se compromete a realizar el avalúo comercial del vehículo conforme a metodologías, referencias del mercado y procedimientos internos establecidos. El resultado del avalúo no compromete a la empresa con la comercialización del automotor, ni constituye una obligación de compra, venta o intermediación.</p>
                 </div>
                 
                 <div style="margin-bottom: 6px;">
@@ -832,7 +832,7 @@ function generateReport() {
                 
                 <div style="margin-bottom: 6px;">
                     <p style="margin: 2px 0; font-weight: bold;">Exoneración por daños durante la inspección</p>
-                    <p style="margin: 2px 0; text-align: justify;">PERITOEXPERT S.A.S. no se hace responsable por daños que se presenten durante la inspección cuando estos se deban a condiciones preexistentes del vehículo, desgaste natural o falta de mantenimiento, incluyendo, pero sin limitarse a: bomba de gasolina eléctrica (por bajo nivel de combustible), correa de repartición (por incumplimiento de mantenimientos recomendados por el fabricante), bobinas electrónicas, guayas de acelerador, embrague, frenos, capó, elementos eléctricos, bombillos de farolas, luces de freno, luces exploradoras, motor, caja o transmisión, así como cualquier otro componente que falle por uso previo o deterioro anterior al ingreso del vehículo al peritaje.</p>
+                    <p style="margin: 2px 0; text-align: justify;">PERITOEXPERT no se hace responsable por daños que se presenten durante la inspección cuando estos se deban a condiciones preexistentes del vehículo, desgaste natural o falta de mantenimiento, incluyendo, pero sin limitarse a: bomba de gasolina eléctrica (por bajo nivel de combustible), correa de repartición (por incumplimiento de mantenimientos recomendados por el fabricante), bobinas electrónicas, guayas de acelerador, embrague, frenos, capó, elementos eléctricos, bombillos de farolas, luces de freno, luces exploradoras, motor, caja o transmisión, así como cualquier otro componente que falle por uso previo o deterioro anterior al ingreso del vehículo al peritaje.</p>
                 </div>
             </div>
             
